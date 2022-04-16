@@ -1,0 +1,90 @@
+<section class="heading-section">
+    <h1 class="title-weather-icons">
+        <i class="fas fa-3x fa-cloud-sun-rain cloud-sun-rain"></i>
+    </h1>
+    <h1 class="title is-1 has-text-centered">My Weather Channel</h1>
+</section>
+
+
+<div class="container add-weather-box-container">
+    <div class="add-weather-box">
+
+        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+            <h2 class="title is-5">Search for city</h2>
+
+            <div class="field is-grouped" style="margin: 0">
+                <p class="control is-expanded">
+                    <input ngModel #weatherTextField="ngModel" required minlength="2" name="text" class="input" type="text"
+                        placeholder="Type city name here...">
+                </p>
+                <p class="control">
+                    <button type="submit" class="button alt-gradient-button">
+                        <i class="material-icons">add</i>
+                        Add
+                    </button>
+                </p>
+            </div>
+
+            <div *ngIf="weatherTextField.invalid && showValidationErrors">
+                <p class="help is-danger" *ngIf="weatherTextField?.errors?.['required']">Please enter the text of your city
+                </p>
+                <!-- <p class="help is-danger" *ngIf="weatherTextField?.errors?.['minlength']">City text must be at least 2
+                    characters</p> -->
+            </div>
+        </form>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="weather-list">
+
+            <app-weather-item 
+            *ngFor="let weather of weather" 
+            [weather]="weather" 
+            (weatherClicked)="toggleCompleted(weather)"
+            (weatherClicked)="makeIncomplete(weather.text)"
+            (weatherClicked)="getWeatherData(weather.text)"
+            (editClicked)="editWeather(weather)"
+            (deleteClicked)="deleteWeather(weather)"
+            ></app-weather-item>
+        </div>
+        <div id="divWeatherMain"> 
+            <div *ngIf="WeatherData.isDay && WeatherData.isClear" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-sun sun"></i>     
+            </div>    
+            <div *ngIf="WeatherData.isDay && WeatherData.isRain" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-cloud-rain cloud-rain"></i>  
+            </div>  
+            <div *ngIf="WeatherData.isDay && WeatherData.isCloud" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-cloud cloud"></i>  
+            </div> 
+            <div *ngIf="WeatherData.isDay && WeatherData.isSnow" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-snowflake snowflake"></i>  
+            </div> 
+              
+            <div *ngIf="!WeatherData.isDay && WeatherData.isClear" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-moon moon"></i>  
+            </div>   
+            <div *ngIf="!WeatherData.isDay && WeatherData.isRain" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-cloud-rain cloud-rain"></i>  
+            </div>  
+            <div *ngIf="!WeatherData.isDay && WeatherData.isCloud" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-cloud cloud"></i>  
+            </div> 
+            <div *ngIf="!WeatherData.isDay && WeatherData.isSnow" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-snowflake snowflake"></i>  
+            </div> 
+            <!-- <div *ngIf="WeatherData" class="weatherWidgetRow cloudDiv">
+                <i class="fas fa-cloud fa-3x cloud"></i>
+            </div> -->
+            <div class="weatherWidgetRow" style="font-size: 15px;margin-top: 10px;">{{WeatherData.description}}</div>
+            <div class="weatherWidgetRow" style="font-size: 45px;margin-top: 35px;">{{WeatherData.temp_celcius}}°</div>
+            <div class="weatherWidgetRow" style="font-size: 15px;margin-top: 25px;">Min: {{WeatherData.temp_min}}° / Max: {{WeatherData.temp_max}}°</div>
+            <div class="weatherWidgetRow" style="font-size: 15px;">Feels Like: {{WeatherData.temp_feels_like}}°</div>
+            <div class="weatherWidgetRow" style="font-size: 45px;margin-top: 35px;">{{WeatherData.name}}</div>
+            <div class="weatherWidgetRow" style="font-size: 12px;margin-top: 80px;">{{WeatherData.sunrise_time}}</div>
+        </div>
+    </div>
+</section>
+

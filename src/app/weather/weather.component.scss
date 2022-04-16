@@ -1,0 +1,152 @@
+.heading-section {
+    // background: linear-gradient(to right, rgb(13, 2, 228), rgb(74, 215, 248));
+    padding: 50px;
+    padding-bottom: 70px;
+
+    h1.title {
+        font-weight: bold;
+        // color: white;
+        color: rgb(51, 55, 177);
+        text-shadow:0px 1px 2px rgba(black, 0.5)
+
+    }
+}
+
+.container {
+
+    max-width: 400px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px; 
+    // margin-left: 200px;
+}
+
+.add-weather-box-container {
+    // position: sticky;
+    // display: inline-block;
+    top: 0;
+    z-index: 1;
+
+    h2.title{
+        font-style: inherit;
+        // color: rgb(51, 55, 177);
+    }
+    
+    
+}
+
+.add-weather-box {
+    
+    padding-top: 20px;
+    padding-bottom: 0px;
+    background-color: white;
+    border-radius: 4px;
+    // margin-top: -68px;
+    
+    // box-shadow: 0 4px 12px rgba(black, 0.08);
+}
+
+.example-button-container {
+    margin-top: 10px;
+    margin-left: 16px;
+    font-size: small;
+}
+
+#divWeatherMain{
+    margin-left: 100px;
+    display: block;
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,50,50) 10%, rgba(8,0, 100,42) 75%, rgb(8, 10, 63, 50) 100%);
+    color: white;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.weatherWidgetRow{
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+}
+
+.sun{
+    width: 60px;
+    height: 60px;
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+    margin-top: 20px;
+    color: yellow;
+    filter: drop-shadow( 1px 1px 10px yellow);
+}
+
+.moon{
+    width: 60px;
+    height: 60px;
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+    margin-top: 20px;
+    color: white;
+    filter: drop-shadow( 1px 1px 10px white);
+}
+
+.cloudDiv{
+    margin-top: -40px;
+}
+
+.cloud{
+    width: 60px;
+    height: 60px;
+    display:block;
+    margin:0 auto;
+    margin-top: 20px;
+    width: fit-content;
+    color: rgb(104, 175, 197);
+    filter: drop-shadow( 1px 1px 5px rgb(104, 175, 197));
+    animation-name: cloudMovement;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+.cloud-rain{
+    width: 60px;
+    height: 60px;
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+    margin-top: 20px;
+    color: rgb(123, 205, 235);
+    filter: drop-shadow( 1px 1px 10px grey);
+}
+
+.snowflake {
+    width: 60px;
+    height: 60px;
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+    margin-top: 20px;
+    color: white;
+    filter: drop-shadow( 1px 1px 10px white);
+}
+
+.cloud-sun-rain{
+    width: 70px;
+    height: 70px;
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+    margin-top: 10px;
+    color: rgb(78, 148, 209);
+    // filter: drop-shadow( 1px 1px 10px grey);
+
+}
+
+
+
+  
+
